@@ -122,7 +122,7 @@ Status: 201 Created
 
 ### 🔐 Update an item
 
-Update an item from the menu.
+Update an item from the menu by overwriting the entire entity. You must send the entire resource in the request.
 
 ```bash
 PUT /api/menu/items/:id
@@ -137,7 +137,7 @@ PUT /api/menu/items/:id
 | `price`       | `number` | **Required**. The item's price in cents.   |
 | `image`       | `string` | **Required**. The URL of the item's image. |
 
-If you only need to update some of the item properties, leave the other values as they are.
+If you only need to update some of the item properties, use the `PATCH /api/menu/items/:id` endpoint.
 
 ##### Example
 
@@ -160,6 +160,68 @@ If you want to update the description only, you'll send a request body like the 
   "price": 599,
   "description": "Juicy",
   "image": "https://cdn.auth0.com/blog/whatabyte/burger-sm.png"
+}
+```
+
+#### Response
+
+##### If item is not found
+
+```bash
+Status: 404 Not Found
+```
+
+##### If item is found
+
+```bash
+Status: 200 OK
+```
+
+```bash
+{
+  "id": "zAvIQGhn$b",
+  "name": "Burger",
+  "price": 599,
+  "description": "Juicy",
+  "image": "https://cdn.auth0.com/blog/whatabyte/burger-sm.png"
+}
+```
+
+### 🔐 Patch an item
+
+Update certain properties of an item from the menu. Only requires you to send the data that you want to update.
+
+```bash
+PATCH /api/menu/items/:id
+```
+
+#### Input
+
+| Name          | Type     | Description                                |
+| ------------- | :------- | :----------------------------------------- |
+| `name`        | `string` | **Optional**. The item's name              |
+| `description` | `string` | **Optional**. The item's description       |
+| `price`       | `number` | **Optional**. The item's price in cents.   |
+| `image`       | `string` | **Optional**. The URL of the item's image. |
+
+##### Example
+
+Take the following item as an example:
+
+```json
+{
+  "name": "Burger",
+  "price": 599,
+  "description": "Tasty",
+  "image": "https://cdn.auth0.com/blog/whatabyte/burger-sm.png"
+}
+```
+
+If you want to update the `description` only, you'll send a request body like the following:
+
+```json
+{
+  "description": "Juicy"
 }
 ```
 
