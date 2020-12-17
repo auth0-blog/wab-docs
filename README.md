@@ -168,13 +168,33 @@ If you want to update the description only, you'll send a request body like the 
 ##### If item is not found
 
 ```bash
-Status: 404 Not Found
+Status: 201 Created
+```
+
+```json
+{
+  "id": "QvcDfWMwg",
+  "name": "Salad",
+  "price": 4.99,
+  "description": "Fresh",
+  "image": "https://cdn.auth0.com/blog/whatabyte/salad-sm.png"
+}
 ```
 
 ##### If item is found
 
 ```bash
-Status: 204 No Content
+Status: 200 OK
+```
+
+```json
+{
+  "id": "QvcDfWMwg",
+  "name": "Salad",
+  "price": 4.99,
+  "description": "Fresh",
+  "image": "https://cdn.auth0.com/blog/whatabyte/salad-sm.png"
+}
 ```
 
 ### 🔐 Patch an item
