@@ -174,17 +174,7 @@ Status: 404 Not Found
 ##### If item is found
 
 ```bash
-Status: 200 OK
-```
-
-```bash
-{
-  "id": "zAvIQGhn$b",
-  "name": "Burger",
-  "price": 599,
-  "description": "Juicy",
-  "image": "https://cdn.auth0.com/blog/whatabyte/burger-sm.png"
-}
+Status: 204 No Content
 ```
 
 ### 🔐 Patch an item
@@ -236,17 +226,7 @@ Status: 404 Not Found
 ##### If item is found
 
 ```bash
-Status: 200 OK
-```
-
-```bash
-{
-  "id": "zAvIQGhn$b",
-  "name": "Burger",
-  "price": 599,
-  "description": "Juicy",
-  "image": "https://cdn.auth0.com/blog/whatabyte/burger-sm.png"
-}
+Status: 204 No Content
 ```
 
 ### 🔐 Remove all items
